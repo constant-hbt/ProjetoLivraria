@@ -86,7 +86,6 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
         jbSalvar = new javax.swing.JButton();
         jbEditar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
-        jbExcluir = new javax.swing.JButton();
         jlComplemento = new javax.swing.JLabel();
         jtfComplemento = new javax.swing.JTextField();
         jbVoltar = new javax.swing.JButton();
@@ -329,13 +328,6 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
             }
         });
 
-        jbExcluir.setText("Excluir");
-        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbExcluirActionPerformed(evt);
-            }
-        });
-
         jlComplemento.setText("Complemento");
 
         jbVoltar.setText("Voltar");
@@ -411,13 +403,12 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
                                 .addComponent(jlComplemento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jtfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jbNovo)
                         .addGap(18, 18, 18)
                         .addComponent(jbSalvar)
@@ -425,9 +416,7 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
                         .addComponent(jbEditar)
                         .addGap(18, 18, 18)
                         .addComponent(jbCancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbExcluir)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(76, 76, 76))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -498,19 +487,17 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlEstado)
-                            .addComponent(jcbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbNovo)
-                            .addComponent(jbSalvar)
-                            .addComponent(jbEditar)
-                            .addComponent(jbCancelar)
-                            .addComponent(jbExcluir))))
+                            .addComponent(jcbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jbNovo)
+                                .addComponent(jbSalvar)
+                                .addComponent(jbEditar)
+                                .addComponent(jbCancelar))))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -590,7 +577,6 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
         jbSalvar.setEnabled(true);
         jbCancelar.setEnabled(true);
         jbEditar.setEnabled(false);
-        jbExcluir.setEnabled(false);
         jbAdicionarTel.setEnabled(true);
     }//GEN-LAST:event_jbEditarActionPerformed
 
@@ -604,21 +590,6 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
         limparTabDadosCli();
         limparTabelaTel();
     }//GEN-LAST:event_jbCancelarActionPerformed
-
-    private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        try {
-            if (JOptionPane.showConfirmDialog(this, "Deseja realmente excluir?",
-                    "Confirmação", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                ClienteJuriData DAO = new ClienteJuriData();
-                if (DAO.excluir(Integer.parseInt(jlNumid.getText()))) {
-                    JOptionPane.showMessageDialog(this, "Excluido");
-                    jbCancelarActionPerformed(evt);
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
-        }
-    }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAdicionarTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAdicionarTelActionPerformed
         try {
@@ -654,14 +625,7 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbRemoverTelActionPerformed
 
     private void jtTabelaTelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTabelaTelMouseClicked
-        try {
-            int linha = jtTabelaTel.getSelectedRow();
-            if (linha > -1) {
-                jbExcluir.setEnabled(true);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "erro: " + e.getMessage());
-        }
+        
     }//GEN-LAST:event_jtTabelaTelMouseClicked
 
     private void jtfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPesquisarKeyReleased
@@ -704,7 +668,6 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
                     mp.addRow(new String[]{"" + tel.getDdd(), "" + tel.getNumero(), tel.getTipo_tel()});
                 }
                 jbEditar.setEnabled(true);
-                jbExcluir.setEnabled(true);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
@@ -728,7 +691,6 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbAdicionarTel;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbEditar;
-    private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbNovo;
     private javax.swing.JButton jbRemoverTel;
     private javax.swing.JButton jbSalvar;
@@ -815,46 +777,53 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
     }
 
     public boolean validarCampos() {
-        String msg = new String();
-        if (jtfNomeFant.getText().trim().length() < 3) {
-            msg = "Verifique o nome";
+        try{
+            ClienteJuriData juri = new ClienteJuriData();
+            String msg = new String();
+            if (jtfNomeFant.getText().trim().length() < 3) {
+                msg = "Verifique o nome";
+            }
+            if (jtfRazaoSocial.getText().trim().length() < 3) {
+                msg = "Verifique a razão social";
+            }
+            if (jtfEmail.getText().trim().length() < 10 || !jtfEmail.getText().trim().contains("@")) {
+                msg += "\nVerifique o e-mail";
+            }
+            if (jftfCnpj.getText().trim().length() != 18) {
+                msg += "\nVerifique o CPF";
+            }
+            if (jftfCep.getText().trim().length() != 10) {
+                msg += "\nVerifique o Cep";
+            }
+            if (jtfRua.getText().trim().length() < 3) {
+                msg += "\nVerifique o nome da rua";
+            }
+            if (jtfBairro.getText().trim().length() < 3) {
+                msg += "\nVerifique o nome o bairro";
+            }
+            if (jtfCidade.getText().trim().length() < 3) {
+                msg += "\nVerifique o nome da cidade";
+            }
+            if (jtfRua.getText().trim().length() < 3) {
+                msg += "\nVerifique o nome da rua";
+            }
+            if (jtfNumero.getText().trim().length() > 5) {
+                msg += "\nVerifique o numero do endereço";
+            }
+            if (jcbEstado.getSelectedIndex() == 0) {
+                msg += "\nVerifique o nome da rua";
+            }
+            if(juri.verificaCnpj(jftfCnpj.getText()))
+                msg += "\nCNPJ já em uso!";
+            if (msg.isEmpty()) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Erros: " + msg, "Validação", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
         }
-        if (jtfRazaoSocial.getText().trim().length() < 3) {
-            msg = "Verifique a razão social";
-        }
-        if (jtfEmail.getText().trim().length() < 10 || !jtfEmail.getText().trim().contains("@")) {
-            msg += "\nVerifique o e-mail";
-        }
-        if (jftfCnpj.getText().trim().length() != 18) {
-            msg += "\nVerifique o CPF";
-        }
-        if (jftfCep.getText().trim().length() != 10) {
-            msg += "\nVerifique o Cep";
-        }
-        if (jtfRua.getText().trim().length() < 3) {
-            msg += "\nVerifique o nome da rua";
-        }
-        if (jtfBairro.getText().trim().length() < 3) {
-            msg += "\nVerifique o nome o bairro";
-        }
-        if (jtfCidade.getText().trim().length() < 3) {
-            msg += "\nVerifique o nome da cidade";
-        }
-        if (jtfRua.getText().trim().length() < 3) {
-            msg += "\nVerifique o nome da rua";
-        }
-        if (jtfNumero.getText().trim().length() > 5) {
-            msg += "\nVerifique o numero do endereço";
-        }
-        if (jcbEstado.getSelectedIndex() == 0) {
-            msg += "\nVerifique o nome da rua";
-        }
-        if (msg.isEmpty()) {
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(this, "Erros: " + msg, "Validação", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        return false;
     }
 
     public boolean preencherObjeto() throws Exception {
@@ -888,7 +857,6 @@ public class jifCadastroClientesJuri extends javax.swing.JInternalFrame {
         jbSalvar.setEnabled(false);
         jbEditar.setEnabled(false);
         jbCancelar.setEnabled(false);
-        jbExcluir.setEnabled(false);
     }
 
     public void limparTabelaTel() {

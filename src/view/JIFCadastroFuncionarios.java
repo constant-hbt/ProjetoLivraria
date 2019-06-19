@@ -944,44 +944,51 @@ public class JIFCadastroFuncionarios extends javax.swing.JInternalFrame {
     }
     
     public boolean validarCampos(){
-        String msg = new String();
-        if(JTFNome.getText().trim().length()<3)
-        msg = "Verifique o nome";
-        if(JTFEmail.getText().trim().length()<10 || !JTFEmail.getText().trim().contains("@"))
-            msg += "\nVerifique o e-mail";
-        if(jtfSenha.getText().trim().length() < 3 || jtfSenha.getText().trim().length() > 15)
-            msg+= "\nVerifique a senha";
-        if(jftfCpf.getText().trim().length() != 14)
-            msg += "\nVerifique o CPF";
-        if(jftfRg.getText().trim().length() != 12)
-            msg+= "\nVerifique o RG";
-        if(jftfCep.getText().trim().length() != 10)
-            msg += "\nVerifique o Cep";
-        if(JTFRua.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome da rua";
-        if(JTFBairro.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome o bairro";
-        if(JTFCidade.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome da cidade";
-        if(JTFRua.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome da rua";
-        if(JTFNumero.getText().trim().length() > 5)
-            msg+= "\nVerifique o numero do endereço";
-        if(jcbEstado.getSelectedIndex() == 0)
-            msg+= "\nVerifique o estado";
-        if(JTFLogin.getText().trim().length() < 3)
-            msg+= "\nVerifique o login";
-        if(jftfDataNasc.getText().trim().length() != 10)
-            msg+= "\nVerifique a data de nascimento";
-        if(jcbSexo.getSelectedIndex() == 0)
-            msg +="Verifique o sexo";
-        if(JCBCargo.getSelectedIndex() == 0)
-            msg += "\nVerifique o cargo";
-        if(msg.isEmpty()) return true;
-        else{
-            JOptionPane.showMessageDialog(this, "Erros: " + msg, "Validação", JOptionPane.ERROR_MESSAGE);
-            return false;        
+        try{
+            FuncionarioData func = new FuncionarioData();
+            String msg = new String();
+            if(JTFNome.getText().trim().length()<3)
+            msg = "Verifique o nome";
+            if(JTFEmail.getText().trim().length()<10 || !JTFEmail.getText().trim().contains("@"))
+                msg += "\nVerifique o e-mail";
+            if(jtfSenha.getText().trim().length() < 3 || jtfSenha.getText().trim().length() > 15)
+                msg+= "\nVerifique a senha";
+            if(jftfCpf.getText().trim().length() != 14)
+                msg += "\nVerifique o CPF";
+            if(jftfRg.getText().trim().length() != 12)
+                msg+= "\nVerifique o RG";
+            if(jftfCep.getText().trim().length() != 10)
+                msg += "\nVerifique o Cep";
+            if(JTFRua.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome da rua";
+            if(JTFBairro.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome o bairro";
+            if(JTFCidade.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome da cidade";
+            if(JTFRua.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome da rua";
+            if(JTFNumero.getText().trim().length() > 5)
+                msg+= "\nVerifique o numero do endereço";
+            if(jcbEstado.getSelectedIndex() == 0)
+                msg+= "\nVerifique o estado";
+            if(JTFLogin.getText().trim().length() < 3)
+                msg+= "\nVerifique o login";
+            if(jftfDataNasc.getText().trim().length() != 10)
+                msg+= "\nVerifique a data de nascimento";
+            if(jcbSexo.getSelectedIndex() == 0)
+                msg +="Verifique o sexo";
+            if(JCBCargo.getSelectedIndex() == 0)
+                msg += "\nVerifique o cargo";
+            if(func.verificaLoginEx(JTFLogin.getText(), jtfSenha.getText()))
+                msg += "Login ou senha já em uso!";
+            if(msg.isEmpty()) return true;
+            else{
+                JOptionPane.showMessageDialog(this, "Erros: " + msg, "Validação", JOptionPane.ERROR_MESSAGE);      
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
         }
+        return false;
     }
     
     public boolean preencherObjeto() throws Exception{

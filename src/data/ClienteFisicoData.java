@@ -7,6 +7,7 @@ package data;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -260,24 +261,41 @@ public class ClienteFisicoData extends Conexao{
      } 
         
     
-    /*
-    public String converterData(String data) throws Exception{
-        if(data ==null)
-            return null;
+    public boolean verificaCpf(String cpf) throws SQLException{
         try{
-            String dataf = "";
-            for(int i=data.trim().length(); i>0; i--){
-                if(i != 3 || i != 6)
-                    dataf += data.trim().charAt(i);
-                else 
-                    dataf += "/";
-            }
-            return dataf;
-        }catch(Exception e){
+            String sql = "Select clif_cpf from cli_fisico "
+                    + "where clif_cpf=?";
+            PreparedStatement ps = getConexao().prepareStatement(sql);
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            boolean existe = false;
+            while(rs.next())
+                if(rs.getString("clif_cpf").equals(cpf))
+                    existe = true;
+            return existe;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
             throw e;
         }
     }
-*/
+    
+    public boolean verificaRg(String rg) throws SQLException{
+        try{
+            String sql = "Select clif_rg from cli_fisico "
+                    + "where clif_rg=?";
+            PreparedStatement ps = getConexao().prepareStatement(sql);
+            ps.setString(1, rg);
+            ResultSet rs = ps.executeQuery();
+            boolean existe = false;
+            while(rs.next())
+                if(rs.getString("clif_rg").equals(rg))
+                    existe = true;
+            return existe;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            throw e;
+        }
+    }
 }
 
 

@@ -3,6 +3,7 @@ package data;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -281,5 +282,26 @@ public class FuncionarioData extends Conexao {
 
         return data;
 
+    }
+    
+    public boolean verificaLoginEx(String user, String senha) throws SQLException{
+        try{
+            String sql = "Select func_login, func_senha from funcionario "
+                    + "where func_login=? and func_senha=?";
+            PreparedStatement ps = getConexao().prepareStatement(sql);
+            ps.setString(1, user);
+            ps.setString(2, senha);
+            ResultSet rs = ps.executeQuery();
+            boolean existe = false;
+            while(rs.next()){
+                if(rs.getString("func_login").equals(user) && rs.getString("func_senha").equals(senha)){
+                    existe = true;
+                }
+            }
+            return existe;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            throw e;
+        }
     }
 }

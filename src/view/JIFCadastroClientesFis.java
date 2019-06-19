@@ -88,7 +88,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
         jbSalvar = new javax.swing.JButton();
         jbEditar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
-        jbExcluir = new javax.swing.JButton();
         jlBairro = new javax.swing.JLabel();
         jtfBairro = new javax.swing.JTextField();
         jftfCpf = new javax.swing.JFormattedTextField();
@@ -169,7 +168,7 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
                     .addComponent(jtfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcbTipoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jspTabelaDados, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addComponent(jspTabelaDados, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -351,13 +350,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
             }
         });
 
-        jbExcluir.setText("Excluir");
-        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbExcluirActionPerformed(evt);
-            }
-        });
-
         jlBairro.setText("Bairro");
 
         try {
@@ -401,27 +393,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
                 .addGap(125, 125, 125)
                 .addComponent(jlObservacoes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jlId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlNumid)
-                        .addGap(265, 265, 265)
-                        .addComponent(jbVoltar)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jbNovo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbSalvar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbEditar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbCancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbExcluir)
-                        .addGap(55, 55, 55))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -490,6 +461,25 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jlId)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlNumid)
+                        .addGap(265, 265, 265)
+                        .addComponent(jbVoltar)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jbNovo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbSalvar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbEditar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbCancelar)
+                        .addGap(91, 91, 91))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -557,8 +547,7 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
                     .addComponent(jbNovo)
                     .addComponent(jbSalvar)
                     .addComponent(jbEditar)
-                    .addComponent(jbCancelar)
-                    .addComponent(jbExcluir))
+                    .addComponent(jbCancelar))
                 .addGap(2, 2, 2)
                 .addComponent(jlObservacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -616,7 +605,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
         jbSalvar.setEnabled(true);
         jbCancelar.setEnabled(true);
         jbEditar.setEnabled(false);
-        jbExcluir.setEnabled(false);
         jbAdicionarTel.setEnabled(true);
     }//GEN-LAST:event_jbEditarActionPerformed
 
@@ -631,21 +619,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
         limparTabDadosFunc();
         limparTabelaTel();
     }//GEN-LAST:event_jbCancelarActionPerformed
-
-    private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        try{
-            if(JOptionPane.showConfirmDialog(this, "Deseja realmente excluir?",  
-                    "Confirmação", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-                ClienteFisicoData DAO = new ClienteFisicoData();
-                if(DAO.excluir(Integer.parseInt(jlNumid.getText()))){
-                    JOptionPane.showMessageDialog(this, "Excluido");
-                    jbCancelarActionPerformed(evt);
-                }
-            }
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
-        }
-    }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         try{
@@ -712,13 +685,7 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbRemoverTelActionPerformed
 
     private void jtTabelaTelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTabelaTelMouseClicked
-        try{
-            int linha = jtTabelaTel.getSelectedRow();
-            if(linha > -1)
-                jbExcluir.setEnabled(true);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "erro: " + e.getMessage());
-        }
+        
     }//GEN-LAST:event_jtTabelaTelMouseClicked
 
     private void jtfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfPesquisarActionPerformed
@@ -768,7 +735,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
                     mp.addRow(new String[]{"" + tel.getDdd(), "" + tel.getNumero(), tel.getTipo_tel()});
                 }
                 jbEditar.setEnabled(true);
-                jbExcluir.setEnabled(true);
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
@@ -788,7 +754,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbAdicionarTel;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbEditar;
-    private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbNovo;
     private javax.swing.JButton jbRemoverTel;
     private javax.swing.JButton jbSalvar;
@@ -882,38 +847,48 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
     }
     
     public boolean validarCampos(){
-        String msg = new String();
-        if(jtfNome.getText().trim().length()<3)
-        msg = "Verifique o nome";
-        if(jtfEmail.getText().trim().length()<10 || !jtfEmail.getText().trim().contains("@"))
-            msg += "\nVerifique o e-mail";
-        if(jftfCpf.getText().trim().length() != 14)
-            msg += "\nVerifique o CPF";
-        if(jftfRg.getText().trim().length() != 12)
-            msg+= "\nVerifique o RG";
-        if(jftfCep.getText().trim().length() != 10)
-            msg += "\nVerifique o Cep";
-        if(jtfRua.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome da rua";
-        if(jtfBairro.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome o bairro";
-        if(jtfCidade.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome da cidade";
-        if(jtfRua.getText().trim().length() < 3)
-            msg+= "\nVerifique o nome da rua";
-        if(jtfNumero.getText().trim().length() > 5)
-            msg+= "\nVerifique o numero do endereço";
-        if(jcbEstado.getSelectedIndex() == 0)
-            msg+= "\nVerifique o estado";
-        if(jftfData_nasc.getText().trim().length() != 10)
-            msg+= "\nVerifique a data de nascimento";
-        if(jcbSexo.getSelectedIndex() == 0)
-            msg+= "\nVerifique o sexo";
-        if(msg.isEmpty()) return true;
-        else{
-            JOptionPane.showMessageDialog(this, "Erros: " + msg, "Validação", JOptionPane.ERROR_MESSAGE);
-            return false;        
+        try{
+            String msg = new String();
+            ClienteFisicoData fis = new ClienteFisicoData();
+            if(jtfNome.getText().trim().length()<3)
+            msg = "Verifique o nome";
+            if(jtfEmail.getText().trim().length()<10 || !jtfEmail.getText().trim().contains("@"))
+                msg += "\nVerifique o e-mail";
+            if(jftfCpf.getText().trim().length() != 14)
+                msg += "\nVerifique o CPF";
+            if(jftfRg.getText().trim().length() != 12)
+                msg+= "\nVerifique o RG";
+            if(jftfCep.getText().trim().length() != 10)
+                msg += "\nVerifique o Cep";
+            if(jtfRua.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome da rua";
+            if(jtfBairro.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome o bairro";
+            if(jtfCidade.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome da cidade";
+            if(jtfRua.getText().trim().length() < 3)
+                msg+= "\nVerifique o nome da rua";
+            if(jtfNumero.getText().trim().length() > 5)
+                msg+= "\nVerifique o numero do endereço";
+            if(jcbEstado.getSelectedIndex() == 0)
+                msg+= "\nVerifique o estado";
+            if(jftfData_nasc.getText().trim().length() != 10)
+                msg+= "\nVerifique a data de nascimento";
+            if(jcbSexo.getSelectedIndex() == 0)
+                msg+= "\nVerifique o sexo";
+            if(fis.verificaCpf(jftfCpf.getText()))
+                msg += "\nCPF já em uso!";
+            if(fis.verificaRg(jftfRg.getText()))
+                    msg += "\nRg já em uso!";
+            if(msg.isEmpty()) return true;
+            else{
+                JOptionPane.showMessageDialog(this, "Erros: " + msg, "Validação", JOptionPane.ERROR_MESSAGE);
+                return false;        
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
         }
+        return false;
     }
     
     public boolean preencherObjeto() throws Exception{
@@ -949,7 +924,6 @@ public class JIFCadastroClientesFis extends javax.swing.JInternalFrame {
         jbSalvar.setEnabled(false);
         jbEditar.setEnabled(false);
         jbCancelar.setEnabled(false);
-        jbExcluir.setEnabled(false);
     }
     
     public void limparTabelaTel(){

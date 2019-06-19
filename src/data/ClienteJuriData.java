@@ -3,6 +3,7 @@ package data;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -211,7 +212,24 @@ public class ClienteJuriData extends Conexao{
            
          data = format.format(d1);  
            
-         return data;         
-           
+         return data;    
      } 
+    
+    public boolean verificaCnpj(String cnpj) throws SQLException{
+        try{
+            String sql = "Select clij_cnpj from cli_juridico "
+                    + "where clij_cnpj=?";
+            PreparedStatement ps = getConexao().prepareStatement(sql);
+            ps.setString(1, cnpj);
+            ResultSet rs = ps.executeQuery();
+            boolean existe = false;
+            while(rs.next())
+                if(rs.getString("clij_cnpj").equals(cnpj))
+                    existe = true;
+            return existe;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            throw e;
+        }
+    }
 }
